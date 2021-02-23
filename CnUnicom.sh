@@ -332,7 +332,7 @@ function main() {
     for ((u = 0; u < ${#all_username_password[*]}; u++)); do 
         sleep $(shuf -i 1-10 -n 1)
         username=${all_username_password[u]%@*} && password=${all_username_password[u]#*@}
-        workdir="${workdirbase}_${username}" && [[ ! -d "$workdir" ]] && mkdir $workdir
+        workdir="${workdirbase}_${username}" && [[ ! -d "$workdir" ]] && mkdir -p $workdir
         userlogin && userlogin_ook[u]=$(echo ${username:0:2}******${username:8}) || { userlogin_err[u]=$(echo ${username:0:2}******${username:8}); continue; }
         membercenter
         liulactive
